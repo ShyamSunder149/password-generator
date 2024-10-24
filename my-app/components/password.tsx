@@ -3,9 +3,17 @@
 import { useState } from 'react';
 import axios from 'axios';
 
+interface FormData {
+    length: number;
+    includeUppercase: boolean;
+    includeLowercase: boolean;
+    includeSymbols: boolean;
+    includeNumbers: boolean;
+}
+
 export default function PasswordGenerator() {
 
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<FormData>({
         length: 8,
         includeUppercase: false,
         includeLowercase: false,
@@ -18,7 +26,7 @@ export default function PasswordGenerator() {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, type, value, checked } = e.target;
         console.log("value : " + name)
-        setFormData((prev : any) => ({
+        setFormData((prev : FormData) => ({
             ...prev,
             [name]: type === "checkbox" ? checked : value,
         }));
