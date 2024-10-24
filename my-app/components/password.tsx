@@ -18,7 +18,7 @@ export default function PasswordGenerator() {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, type, value, checked } = e.target;
         console.log("value : " + name)
-        setFormData((prev) => ({
+        setFormData((prev : any) => ({
             ...prev,
             [name]: type === "checkbox" ? checked : value,
         }));
