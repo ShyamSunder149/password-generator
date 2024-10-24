@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 
 export async function POST(req : NextRequest) {
     const body = await req.json();
-    let charList = "abcdefghijklmnopqrstuvwxyz";
+    const charList = "abcdefghijklmnopqrstuvwxyz";
     let passchars = "";
     if(body.includeUppercase) passchars += charList.toUpperCase();
     if(body.includeLowercase) passchars += charList;
